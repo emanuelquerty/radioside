@@ -73,8 +73,8 @@ class App extends Component {
   variable for recently played stations */
   saveStationToRecents = (station) => {
     let { name, countryOrLanguage, url, favicon } = station;
-    window.localStorage.removeItem("recents");
-    return;
+    // window.localStorage.removeItem("recents");
+    // return;
 
     // Save the station in recents
     if (window.localStorage.getItem("recents")) {
@@ -185,7 +185,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <main className="container">
             <label className="container__label" htmlFor="hamburger-checkbox">
               <div className="label__hamburger-circle" onClick={this.toggleNav}>

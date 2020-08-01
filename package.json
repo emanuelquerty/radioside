@@ -46,5 +46,6 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^1.0.5"
-  }
+  },
+  "homepage": "https://emanuelquerty.github.io/radio/"
 }
