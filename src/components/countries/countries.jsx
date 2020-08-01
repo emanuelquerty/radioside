@@ -16,7 +16,7 @@ class Countries extends Component {
 
   // Get all countries with their station count
   componentDidMount() {
-    let url = "http://de1.api.radio-browser.info/json/countries";
+    let url = "https://de1.api.radio-browser.info/json/countries";
 
     async function getCountries() {
       let res = await fetch(url);

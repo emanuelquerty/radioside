@@ -39,7 +39,7 @@ function SideNav(props) {
       </ul>
 
       <div className="app-author-and-github-box">
-        <p className="app-github">
+        <div className="app-github">
           Connect with me
           <a
             className="github-link"
@@ -51,7 +51,7 @@ function SideNav(props) {
           <p className="developer-name">
             Created with &hearts; by Emanuel Inacio
           </p>
-        </p>
+        </div>
       </div>
     </div>
   );
