@@ -1,0 +1,48 @@
+.recent-page-title {
+  padding: 0rem 0em 0rem 3rem;
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.recents-inner-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem;
+  height: 100%;
+}
+
+.recent-description--on-empty {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3rem;
+}
+
+@media only screen and (max-width: 280px) {
+  .recents-inner-wrapper {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .recent-description--on-empty {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 415px) {
+  .recents-inner-wrapper {
+    justify-content: initial;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .recent-page-title {
+    display: none;
+  }
+}

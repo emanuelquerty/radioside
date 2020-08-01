@@ -1,0 +1,113 @@
+:root {
+  --bg-color-darken: #263238;
+  --bg-color-lighten: #37474f;
+  --container-height: 90vh;
+}
+
+.sidenav {
+  background-color: var(--bg-color-darken);
+  box-shadow: 0 0 0.6rem #1c262b81;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 2rem;
+  transform: translateY(100%);
+  transition: all 0.4s;
+  background-color: #222d33;
+}
+
+.sidenav-open {
+  transform: translateY(0);
+}
+
+.sidenav-close {
+  transform: translateY(100%);
+}
+
+.app-title {
+  color: #c4c4cc;
+  font-size: 2.2rem;
+  margin-bottom: 5rem;
+}
+
+.sidenav__list {
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+a {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #c4c4cc;
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+}
+
+.app-author-and-github-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 2rem;
+  display: none;
+}
+
+.app-github__icon {
+  vertical-align: middle;
+  font-size: 3rem !important;
+}
+
+/****************** Responsive Styles ********************/
+
+@media only screen and (min-width: 768px) {
+  .app-author-and-github-box {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .sidenav {
+    /* transform: translateX(-10%) translateY(8%); */
+    transform: translateX(-4rem)
+      translateY(calc(var(--container-height) * 0.04));
+    border-radius: 3rem;
+  }
+
+  .sidenav__item {
+    background-color: var(--bg-color-lighten);
+    border-radius: 3rem;
+    padding: 0 4rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* This will make the styles at 0% of the "@keyframes moveInBottom"  to apply before animation starts*/
+  }
+
+  .sidenav__item:hover {
+    background-color: #c4c4cc;
+    transform: translateX(-6rem);
+  }
+
+  .sidenav__item:hover a {
+    color: var(--bg-color-lighten);
+  }
+
+  @keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

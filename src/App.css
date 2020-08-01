@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+:root {
+  --bg-color-darken: #263238;
+  --bg-color-lighten: #37474f;
+  --container-height: 90vh;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 62.5%; /* 62.5% -> 1rem = 10px*/
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "topBox"
+    "middleBox"
+    "bottomBox";
+  grid-template-rows: 40% 10% 50%;
+  grid-template-columns: 100%;
+  background-color: #263238;
+  overflow: hidden;
+  color: #c4c4c4;
+  font-size: 1.5rem;
+}
+
+.container__label {
+  position: absolute;
+  left: 6%;
+  top: 3%;
+  z-index: 999;
+}
+
+.label__hamburger-circle {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.6rem #1c262b81;
+  background-color: #263238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 6%;
+  top: 3%;
+  z-index: 999;
+}
+
+.hamburger-circle__menu {
+  font-size: 2.2rem !important;
+}
+
+#hamburger-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.player-container {
+  grid-area: topBox;
+}
+
+.page-description {
+  grid-area: middleBox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.page {
+  grid-area: bottomBox;
+  background-color: var(--bg-color-darken);
+  box-shadow: inset 0 0 1rem #1c262b81;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 2.3rem 1.4rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sidenav {
+  grid-area: bottomBox;
+  z-index: 2;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+}
+
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 55%; /* 62.5% -> 1rem = 10px*/
+  }
+}
+
+/* Iphone 5 and 4 */
+@media only screen and (max-width: 320px) {
+  html {
+    font-size: 54%; /* 62.5% -> 1rem = 10px*/
+  }
+}
+
+/***********************************/
+
+@media only screen and (max-width: 768px) {
+  html {
+    /* font-size: 90%; */
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    /* font-size: 100%; */
+  }
+}
+
+/************************************************ Laptop Styles start here*********************************************/
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #cfd8dc;
+  }
+  .container {
+    width: 80vw;
+    height: 90vh;
+    display: grid;
+    grid-template-areas:
+      "leftArea topRight"
+      "leftArea bottomRight";
+    grid-template-rows: 38% 62%;
+    grid-template-columns: 30% 70%;
+    border-radius: 3rem;
+    background-color: var(--bg-color-lighten);
+    position: relative;
+    overflow: visible;
+  }
+
+  .sidenav {
+    grid-area: leftArea;
+    height: 92%;
+  }
+
+  .player-container {
+    grid-area: topRight;
+  }
+
+  .page {
+    grid-area: bottomRight;
+    height: calc(100% - var(--container-height) * 0.04 * 2);
+    width: calc(
+      100% + 6rem
+    ); /* here 6rem is 0.04 (4rem + 2rem from translating -2rem) */
+    transform: translateX(-2rem)
+      translateY(calc(var(--container-height) * 0.04));
+    border-radius: 3rem;
+  }
+
+  .page-description {
+    display: none;
+  }
+
+  .label__hamburger-circle {
+    display: none;
+  }
+}

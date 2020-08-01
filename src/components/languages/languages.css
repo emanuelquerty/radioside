@@ -1,0 +1,16 @@
+.language-link {
+  padding: 0;
+}
+
+.languages-page-title {
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 0rem 0rem 0rem 1.6rem;
+  margin: 1rem 0 3rem 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .languages-page-title {
+    display: none;
+  }
+}

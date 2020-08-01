@@ -1,0 +1,40 @@
+.station__flag {
+  display: none;
+}
+
+.station {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.station:hover {
+  background-color: #121d1f;
+}
+
+.inner-wrapper__countryOrLanguage {
+  font-size: 1.3rem;
+  color: #747474;
+  margin-top: 0.2rem;
+}
+
+.station__play-icon-wrapper {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background-color: #263238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.3rem #121d1f;
+}
+
+.play-icon-wrapper__icon {
+  font-size: 1.6rem !important;
+  cursor: pointer;
+}
