@@ -16,7 +16,7 @@ class Languages extends Component {
 
   // Get all languages with their station count
   componentDidMount() {
-    let url = "/json/languages";
+    let url = "http://de1.api.radio-browser.info/json/languages";
 
     async function getLanguages() {
       let res = await fetch(url);

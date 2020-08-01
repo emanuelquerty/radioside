@@ -20,8 +20,8 @@ class Stations extends Component {
 
     // Construct the url to fetch stations
     isCountry
-      ? (url = `json/stations/bycountry/${queryString}`)
-      : (url = `json/stations/bylanguage/${queryString}`);
+      ? (url = `http://de1.api.radio-browser.info/json/stations/bycountry/${queryString}`)
+      : (url = `http://de1.api.radio-browser.info/json/stations/bylanguage/${queryString}`);
 
     // Fetch stations from the country or language given by queryString
     async function getStations() {
