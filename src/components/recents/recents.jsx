@@ -26,7 +26,7 @@ class Recents extends Component {
         )}
         <div className="recents-inner-wrapper">
           {recents.length === 0 ? (
-            <p className="recent-description--on-empty">
+            <p className="recent-description--on-no-recent-stations">
               Opsss... You haven't played any station recently.
             </p>
           ) : (

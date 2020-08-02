@@ -109,28 +109,14 @@ html {
 
 @media only screen and (max-width: 360px) {
   html {
-    font-size: 55%; /* 62.5% -> 1rem = 10px*/
+    font-size: 55%;
   }
 }
 
 /* Iphone 5 and 4 */
 @media only screen and (max-width: 320px) {
   html {
-    font-size: 54%; /* 62.5% -> 1rem = 10px*/
-  }
-}
-
-/***********************************/
-
-@media only screen and (max-width: 768px) {
-  html {
-    /* font-size: 90%; */
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  html {
-    /* font-size: 100%; */
+    font-size: 54%;
   }
 }
 

@@ -5,22 +5,22 @@ function PageTitle(props) {
     let location = window.location.pathname;
     let pageTitle;
     switch (location) {
-      case "/":
+      case "/radio/":
         pageTitle = "Recently Played";
         break;
-      case "/countries":
+      case "/radio/countries":
         pageTitle = "Browse Stations by Country";
         break;
-      case "/languages":
+      case "/radio/languages":
         pageTitle = "Browse Stations by Language";
         break;
-      case "/favorites":
+      case "/radio/favorites":
         pageTitle = "Your Favorite Stations";
         break;
-      case "/stations-by-country":
+      case "/radio/stations-by-country":
         pageTitle = `Radio stations from ${props.countryOrLanguage}`;
         break;
-      case "/stations-by-language":
+      case "/radio/stations-by-language":
         pageTitle = `Radio stations in ${props.countryOrLanguage}`;
         break;
 
