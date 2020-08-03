@@ -13,7 +13,7 @@
   height: 100%;
 }
 
-.recent-description--on-empty {
+.recent-description--on-no-recent-stations {
   width: 100%;
   font-size: 2rem;
   font-weight: bold;
@@ -30,7 +30,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .recent-description--on-empty {
+  .recent-description--on-no-recent-stations {
     font-size: 1.3rem;
   }
 }
