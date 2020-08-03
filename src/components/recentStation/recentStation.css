@@ -1,6 +1,6 @@
 .recent-station {
-  width: 12rem;
-  height: 19rem;
+  width: 13rem;
+  height: 15rem;
   text-align: center;
   border-radius: 1rem;
   box-shadow: 0 0 1rem #1c262b81;
@@ -17,11 +17,12 @@
 
 .recent-station__name {
   font-weight: 500;
-  margin-top: 1.1rem;
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
 }
 
 .recent-station__country-or-language {
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
   font-size: 1.2rem;
   font-weight: 500;
   color: #747474;

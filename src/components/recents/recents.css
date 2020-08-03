@@ -13,7 +13,7 @@
   height: 100%;
 }
 
-.recent-description--on-no-recent-stations {
+.recent-description--on-empty {
   width: 100%;
   font-size: 2rem;
   font-weight: bold;
