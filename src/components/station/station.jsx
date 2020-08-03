@@ -6,18 +6,19 @@ import Loader from "react-loader-spinner";
 
 function Station(props) {
   let {
-    name,
+    stationName,
     countryOrLanguage,
     aStationIsPlaying,
-    currentStationPlaying,
+    selectedStation,
+    player,
   } = props;
 
   function handleClick() {
-    let { name, countryOrLanguage, url, favicon } = props;
+    let { stationName, countryOrLanguage, url, favicon } = props;
 
     // Play this station if a different station is playing.
     // toggle between play and pause if it is already playing or paused
-    props.onPlay({ name, countryOrLanguage, url, favicon });
+    props.onPlay({ name: stationName, countryOrLanguage, url, favicon });
   }
 
   return (
@@ -27,16 +28,16 @@ function Station(props) {
       </div>
       <div className="station__inner-wrapper">
         <div className="inner-wrapper__name">
-          {name.length > 22 ? name.substring(0, 22) : name}
+          {stationName.length > 22 ? stationName.substring(0, 22) : stationName}
         </div>
         <div className="inner-wrapper__countryOrLanguage">
           {countryOrLanguage}
         </div>
       </div>
       <div className="station__play-icon-wrapper">
-        {aStationIsPlaying && currentStationPlaying === name ? (
+        {aStationIsPlaying && selectedStation === stationName ? (
           <Pause className="pause-icon-wrapper__icon" />
-        ) : props.loading ? (
+        ) : selectedStation === stationName && player.currentTime === 0 ? (
           <Loader
             className="audio-loader"
             type="Puff"

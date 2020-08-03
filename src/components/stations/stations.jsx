@@ -6,7 +6,7 @@ import Loader from "react-loader-spinner";
 class Stations extends Component {
   state = {
     stations: [],
-    currentStationPlaying: "",
+    selectedStation: "",
     loaded: false,
   };
 
@@ -62,7 +62,7 @@ class Stations extends Component {
     // Play this station if a different station is playing.
     // Toggle between play and pause if it is already playing or paused
     this.props.onPlay(station);
-    this.setState({ currentStationPlaying: station.name });
+    this.setState({ selectedStation: station.name });
   };
 
   render() {
@@ -73,19 +73,14 @@ class Stations extends Component {
             return (
               <Station
                 key={station.key}
-                name={station.name}
+                stationName={station.name}
                 countryOrLanguage={station.countryOrLanguage}
                 url={station.url}
                 favicon={station.favicon}
                 onPlay={this.handlePlay}
                 aStationIsPlaying={this.props.aStationIsPlaying}
-                currentStationPlaying={this.state.currentStationPlaying}
-                loading={
-                  this.state.currentStationPlaying === station.name &&
-                  this.props.player.currentTime === 0
-                    ? true
-                    : false
-                }
+                selectedStation={this.state.selectedStation}
+                player={this.props.player}
               />
             );
           })
