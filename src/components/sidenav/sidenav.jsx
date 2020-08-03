@@ -16,7 +16,7 @@ function SideNav(props) {
   classes += props.navIsClosed ? "sidenav-close" : "sidenav-open";
   return (
     <div className={classes}>
-      <h1 className="app-title"> Hack Radio</h1>
+      <h1 className="app-title"> HackRadio</h1>
       <ul className="sidenav__list">
         <li className="sidenav__item" onClick={handleClick}>
           <Link to="/">
