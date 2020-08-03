@@ -26,10 +26,12 @@ function RecentStation(props) {
       />
       <div className="recent-station__station-info-wrapper">
         <p className="recent-station__name">
-          {name.length > 22 ? `${name.substring(0, 18)}...` : name}
+          {name.length > 18 ? `${name.substring(0, 18)}...` : name}
         </p>
         <p className="recent-station__country-or-language">
-          {countryOrLanguage}
+          {countryOrLanguage.length > 18
+            ? `${countryOrLanguage.substring(0, 18)}...`
+            : countryOrLanguage}
         </p>
       </div>
     </div>
