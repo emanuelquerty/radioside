@@ -68,6 +68,8 @@ a {
 @media only screen and (min-width: 768px) {
   .app-author-and-github-box {
     display: block;
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* This will make the styles at 0% of the "@keyframes moveInBottom"  to apply before animation starts*/
   }
 }
 
