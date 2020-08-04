@@ -8,6 +8,12 @@ I hope you will enjoy it as much as I do :).
 
 ## Live Url
 
+Please, notice that the app is currently on beta version. Although most of the features have been fully tested
+and already working, some features are still lacking behind and there is a possibility of minor bugs.
+I hope to fix all the currently known bugs and deploy the final working version soon.
+
+Here is the live url address:
+
 https://emanuelquerty.github.io/radioside/
 
 ## Technical Description
