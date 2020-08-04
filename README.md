@@ -6,6 +6,10 @@ and listen to their recently played stations.
 
 I hope you will enjoy it as much as I do :).
 
+## Live Url
+
+https://emanuelquerty.github.io/radioside/
+
 ## Technical Description
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
