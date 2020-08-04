@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/radio/static/css/main.a17ce6b4.chunk.css",
+    "main.js": "/radio/static/js/main.a89f5992.chunk.js",
+    "main.js.map": "/radio/static/js/main.a89f5992.chunk.js.map",
+    "runtime-main.js": "/radio/static/js/runtime-main.a68659de.js",
+    "runtime-main.js.map": "/radio/static/js/runtime-main.a68659de.js.map",
+    "static/css/2.bbf03e9b.chunk.css": "/radio/static/css/2.bbf03e9b.chunk.css",
+    "static/js/2.fcddab0d.chunk.js": "/radio/static/js/2.fcddab0d.chunk.js",
+    "static/js/2.fcddab0d.chunk.js.map": "/radio/static/js/2.fcddab0d.chunk.js.map",
+    "index.html": "/radio/index.html",
+    "precache-manifest.abf9424946d5bd64adea746a68bd0fdf.js": "/radio/precache-manifest.abf9424946d5bd64adea746a68bd0fdf.js",
+    "service-worker.js": "/radio/service-worker.js",
+    "static/css/2.bbf03e9b.chunk.css.map": "/radio/static/css/2.bbf03e9b.chunk.css.map",
+    "static/css/main.a17ce6b4.chunk.css.map": "/radio/static/css/main.a17ce6b4.chunk.css.map",
+    "static/js/2.fcddab0d.chunk.js.LICENSE.txt": "/radio/static/js/2.fcddab0d.chunk.js.LICENSE.txt",
+    "static/media/default-station-favicon.jpg": "/radio/static/media/default-station-favicon.74871842.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a68659de.js",
+    "static/css/2.bbf03e9b.chunk.css",
+    "static/js/2.fcddab0d.chunk.js",
+    "static/css/main.a17ce6b4.chunk.css",
+    "static/js/main.a89f5992.chunk.js"
+  ]
+}
