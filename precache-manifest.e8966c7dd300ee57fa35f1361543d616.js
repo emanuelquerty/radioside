@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f56a898ace00101a1846774d8880cdf1",
+    "revision": "f7dc43db2c6c13e348cc525f42b66e54",
     "url": "/radioside/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/radioside/static/css/2.bbf03e9b.chunk.css"
   },
   {
-    "revision": "9702f0564de34edef86c",
+    "revision": "38c9c04d50742a8f193e",
     "url": "/radioside/static/css/main.a17ce6b4.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/radioside/static/js/2.fcddab0d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9702f0564de34edef86c",
-    "url": "/radioside/static/js/main.2cfb41ca.chunk.js"
+    "revision": "38c9c04d50742a8f193e",
+    "url": "/radioside/static/js/main.dae89475.chunk.js"
   },
   {
     "revision": "402eac9cc8fc7580fc05",
