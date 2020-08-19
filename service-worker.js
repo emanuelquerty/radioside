@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/radioside/precache-manifest.e8966c7dd300ee57fa35f1361543d616.js"
+  "/radioside/precache-manifest.872e71cd53029cc84efb51baba6430bf.js"
 );
 
 self.addEventListener('message', (event) => {
