@@ -165,6 +165,7 @@ class App extends Component {
       if (err.name !== "AbortError") {
         cannotPlayStationPopUpIsClosed = false;
         aStationIsLoading = false;
+        player.pause();
       }
 
       this.setState({
