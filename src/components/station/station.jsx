@@ -9,8 +9,8 @@ function Station(props) {
     stationName,
     countryOrLanguage,
     aStationIsPlaying,
+    aStationIsLoading,
     selectedStation,
-    player,
   } = props;
 
   function handleClick() {
@@ -37,7 +37,7 @@ function Station(props) {
       <div className="station__play-icon-wrapper">
         {aStationIsPlaying && selectedStation === stationName ? (
           <Pause className="pause-icon-wrapper__icon" />
-        ) : selectedStation === stationName && player.currentTime === 0 ? (
+        ) : selectedStation === stationName && aStationIsLoading ? (
           <Loader
             className="audio-loader"
             type="Puff"

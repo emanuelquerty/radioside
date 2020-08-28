@@ -11,6 +11,8 @@ import Languages from "./components/languages/languages.jsx";
 import Stations from "./components/stations/stations.jsx";
 import PageTitle from "./components/pageTitle/pageTitle.jsx";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Cancel from "@material-ui/icons/Cancel";
+import Info from "@material-ui/icons/Info";
 
 /*
  ********** Explanation of state properties **********************
@@ -30,7 +32,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
  * aStationIsPlaying: this tells if there is a station playing. Useful in the PlayerContainer and Stations Component
  * for swiching between the pause and play icon
  *
- * StationName: this holds the station name that is displayed in the PlayerContainer Component
+ * stationPlaying: this holds the station name that is displayed in the PlayerContainer Component
  *
  *****************************************************************/
 class App extends Component {
@@ -47,8 +49,10 @@ class App extends Component {
     isCountry: true,
     player: new Audio(),
     aStationIsPlaying: false,
-    stationName: "No Station Playing",
+    aStationIsLoading: false,
+    stationPlaying: "No Station Playing",
     stationFavicon: "https://picsum.photos/100",
+    cannotPlayStationPopUpIsClosed: true,
   };
 
   /* If nav is open, close nav. If closed, open nav */
@@ -137,13 +141,15 @@ class App extends Component {
 
       // wait until station plays. This throws an error if station can't play
       // for reasons like station url is corrupted, station unavailable etc
+      this.setState({ aStationIsLoading: true });
       await player.play();
 
       // Set aStationIsPlaying flag to true
       if (!player.paused) {
         this.setState({
+          aStationIsLoading: false,
           aStationIsPlaying: true,
-          stationName: name,
+          stationPlaying: name,
           countryOrLanguage,
           stationFavicon: favicon,
         });
@@ -152,7 +158,21 @@ class App extends Component {
         this.saveStationToRecents({ name, url, countryOrLanguage, favicon });
       }
     } catch (err) {
-      this.setState({ aStationIsPlaying: false });
+      let cannotPlayStationPopUpIsClosed = true;
+      let aStationIsLoading = true;
+      console.log(err.name);
+
+      if (err.name !== "AbortError") {
+        cannotPlayStationPopUpIsClosed = false;
+        aStationIsLoading = false;
+      }
+
+      this.setState({
+        aStationIsLoading,
+        aStationIsPlaying: false,
+        stationPlaying: "No station playing",
+        cannotPlayStationPopUpIsClosed,
+      });
     }
   };
 
@@ -160,7 +180,7 @@ class App extends Component {
    * depending on user pressing the play or pause button
    */
   togglePlaying = () => {
-    if (this.state.stationName === "No Station Playing") return;
+    if (this.state.stationPlaying === "No Station Playing") return;
 
     // toggle the current station. If playing, pause it. Resume, otherwise.
     let { player, aStationIsPlaying } = this.state;
@@ -175,13 +195,25 @@ class App extends Component {
 
   render() {
     let {
-      stationName,
+      stationPlaying,
       countryOrLanguage,
+      aStationIsLoading,
       aStationIsPlaying,
       isCountry,
       pageTitle,
       stationFavicon,
+      cannotPlayStationPopUpIsClosed,
     } = this.state;
+
+    let cannotPlayStationPopUpClassName = "cannot-play-station-pop-up";
+    let backDropClassName = "backdropShadow";
+    if (cannotPlayStationPopUpIsClosed) {
+      cannotPlayStationPopUpClassName += " cannot-play-station-pop-up--hide";
+      backDropClassName += " backdropShadow--hide";
+    } else {
+      cannotPlayStationPopUpClassName += " cannot-play-station-pop-up--show";
+      backDropClassName += " backdropShadow--show";
+    }
 
     return (
       <div className="app">
@@ -204,8 +236,9 @@ class App extends Component {
             />
             <div className="page-description">{pageTitle}</div>
             <PlayerContainer
+              aStationIsLoading={aStationIsLoading}
               aStationIsPlaying={aStationIsPlaying}
-              stationName={stationName}
+              stationPlaying={stationPlaying}
               countryOrLanguage={countryOrLanguage}
               stationFavicon={stationFavicon}
               togglePlaying={this.togglePlaying}
@@ -255,6 +288,7 @@ class App extends Component {
                       aStationIsPlaying={aStationIsPlaying}
                       player={this.state.player}
                       onUpdatePageTitle={this.updatePageTitle}
+                      aStationIsLoading={aStationIsLoading}
                     />
                   );
                 }}
@@ -270,12 +304,30 @@ class App extends Component {
                       aStationIsPlaying={aStationIsPlaying}
                       player={this.state.player}
                       onUpdatePageTitle={this.updatePageTitle}
+                      aStationIsLoading={aStationIsLoading}
                     />
                   );
                 }}
               />
             </Switch>
           </main>
+          <div className={cannotPlayStationPopUpClassName}>
+            <h2 className="cannot-play-station-pop-up__error-title">
+              <Info className="error-title__info-btn" />{" "}
+              <span className="error-title__description">
+                Station is anavailable
+              </span>
+            </h2>
+            Cannot play this station because it is either currently anavailable
+            or not supported.
+            <Cancel
+              className="cannot-play-station-pop-up__close-btn"
+              onClick={() => {
+                this.setState({ cannotPlayStationPopUpIsClosed: true });
+              }}
+            />
+          </div>
+          <div className={backDropClassName}></div>
         </Router>
       </div>
     );

@@ -107,6 +107,73 @@ html {
   left: calc(50% - 40px);
 }
 
+.cannot-play-station-pop-up {
+  background-color: #cfd8dc;
+  position: absolute;
+  top: calc(50% - 10rem);
+  left: calc(50% - 20rem);
+  z-index: 999;
+  width: 40rem;
+  height: 20rem;
+  font-size: 1.4rem;
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  line-height: 20px;
+}
+
+.cannot-play-station-pop-up__error-title {
+  margin-bottom: 2rem;
+}
+
+.error-title__info-btn,
+.error-title__description {
+  vertical-align: middle;
+}
+
+.error-title__info-btn {
+  font-size: 2.5rem !important;
+}
+
+.cannot-play-station-pop-up--show,
+.backdropShadow--show {
+  display: block;
+}
+.cannot-play-station-pop-up--hide,
+.backdropShadow--hide {
+  display: none;
+}
+
+.backdropShadow {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.349);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 998;
+}
+
+.cannot-play-station-pop-up__close-btn {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.5rem;
+  font-size: 4rem !important;
+  cursor: pointer;
+  color: #333;
+}
+
+@media only screen and (max-width: 500px) {
+  .cannot-play-station-pop-up {
+    top: calc(50% - 10rem);
+    left: 5%;
+    width: 90%;
+    height: 16rem;
+    font-size: 1.4rem;
+    padding: 2rem 1rem;
+    line-height: 20px;
+  }
+}
+
 @media only screen and (max-width: 360px) {
   html {
     font-size: 55%;

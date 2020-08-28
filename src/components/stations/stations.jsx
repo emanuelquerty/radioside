@@ -7,12 +7,31 @@ class Stations extends Component {
   state = {
     stations: [],
     selectedStation: "",
-    loaded: false,
+    loaded: false, // this controlls the loader that pops up before content of a page is loaded
   };
 
   componentWillUnmount() {
     this.props.onUpdatePageTitle();
   }
+
+  /* This removes repeated stations based on their name */
+  removeRepeatedStations = (stations) => {
+    let noRepeats = [];
+
+    stations.forEach((station) => {
+      let isDuplicate = false;
+      for (let i = 0; i < noRepeats.length; i++) {
+        if (station.name === noRepeats[i].name) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      if (!isDuplicate) noRepeats.push(station);
+    });
+
+    return noRepeats;
+  };
 
   componentDidMount() {
     let { queryString, isCountry } = this.props;
@@ -30,8 +49,10 @@ class Stations extends Component {
     }
 
     getStations().then((res) => {
+      let noRepeatedStations = this.removeRepeatedStations(res);
+
       let key = 0;
-      let stationsCleaned = res.map((station) => {
+      let stationsCleaned = noRepeatedStations.map((station) => {
         let { name, country, url, favicon } = station;
         key += 1;
         return { name, countryOrLanguage: country, url, key, favicon };
@@ -39,23 +60,6 @@ class Stations extends Component {
 
       this.setState({ stations: stationsCleaned.slice(), loaded: true });
     });
-
-    // // STREAMS
-    // let key = 0;
-    // oboe(url).node("!.*", (station) => {
-    //   //   console.log(station);
-    //   let stations = JSON.parse(JSON.stringify(this.state.stations));
-    //   let countryOrLanguage;
-
-    //   isCountry
-    //     ? (countryOrLanguage = station.country)
-    //     : (countryOrLanguage = station.language);
-
-    //   let { name, url } = station;
-    //   stations.push({ name, countryOrLanguage, url, key });
-    //   this.setState({ stations });
-    //   key += 1;
-    // });
   }
 
   handlePlay = (station) => {
@@ -79,6 +83,7 @@ class Stations extends Component {
                 favicon={station.favicon}
                 onPlay={this.handlePlay}
                 aStationIsPlaying={this.props.aStationIsPlaying}
+                aStationIsLoading={this.props.aStationIsLoading}
                 selectedStation={this.state.selectedStation}
                 player={this.props.player}
               />
