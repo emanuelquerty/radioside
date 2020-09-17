@@ -316,7 +316,7 @@ class App extends Component {
             <h2 className="cannot-play-station-pop-up__error-title">
               <Info className="error-title__info-btn" />{" "}
               <span className="error-title__description">
-                Station is anavailable
+                Station is unavailable
               </span>
             </h2>
             Cannot play this station because it is either currently unavailable
