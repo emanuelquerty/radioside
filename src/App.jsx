@@ -319,7 +319,7 @@ class App extends Component {
                 Station is anavailable
               </span>
             </h2>
-            Cannot play this station because it is either currently anavailable
+            Cannot play this station because it is either currently unavailable
             or not supported.
             <Cancel
               className="cannot-play-station-pop-up__close-btn"
